@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task List</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="app" class="container">
+      <div class="row">
+        <div class="col-6">
+          <h2 class="display-6" v-html="projectTitle()"></h2>
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="task"
+              v-model="getTask"
+              placeholder="Task"
+            />
+            <button
+              class="btn btn-success"
+              type="button"
+              v-on:click="addToList"
+            >
+              Add
+            </button>
+          </div>
+
+          <ul class="list-group">
+            <li class="list-group-item" v-for="list in lists">
+              <input
+                class="form-check-input me-1"
+                type="checkbox"
+                value=""
+                aria-label="..."
+              />
+              {{list}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-6">
+          <p>visit this <a v-bind:href="siteLink">link</a></p>
+          <button class="btn btn-success" v-on:click="add()">Add</button>
+          <button class="btn btn-danger" v-on:click="reduce()">Reduce</button>
+          <br />
+          <span class="badge bg-info">{{counter}}</span>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-6">
+          <input
+            type="text"
+            class="form-control"
+            v-on:keydown="getSetName()"
+            v-model="getName"
+          />
+          <div class="badge bg-info">{{getName}}</div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <script src="vue.global.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
